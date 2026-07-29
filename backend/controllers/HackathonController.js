@@ -1,42 +1,45 @@
-const { message } = require("statuses");
 const Hackathon = require("../models/Hackathon");
 
+// Create Hackathon
 const createHackathon = async (req, res) => {
-  try {
-    const {
-      title,
-      description,
-      startDate,
-      endDate,
-      registrationDeadline,
-      location,
-      mode,
-    } = req.body;
+    try {
+        const {
+            title,
+            description,
+            startDate,
+            endDate,
+            registrationDeadline,
+            location,
+            mode
+        } = req.body;
 
-    const hackathon = await Hackathon.create({
-      title,
-      description,
-      startDate,
-      endDate,
-      registrationDeadline,
-      location,
-      mode,
-      organizer: req.user.id,
-    });
+        const hackathon = await Hackathon.create({
+            title,
+            description,
+            startDate,
+            endDate,
+            registrationDeadline,
+            location,
+            mode,
+            organizer: req.user.id
+        });
 
-    res.status(201).json({
-      success: true,
-      message: "Hackathon created successfully",
-      hackathon,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Server Error",
-      error: error.message,
-    });
-  }
+        res.status(201).json({
+            success: true,
+            message: "Hackathon created successfully",
+            hackathon
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Server Error",
+            error: error.message
+        });
+    }
 };
+
+// Get All Hackathons
 const getAllHackathons = async (req, res) => {
     try {
         const hackathons = await Hackathon.find().populate(
@@ -49,6 +52,7 @@ const getAllHackathons = async (req, res) => {
             count: hackathons.length,
             hackathons
         });
+
     } catch (error) {
         res.status(500).json({
             success: false,
@@ -58,6 +62,7 @@ const getAllHackathons = async (req, res) => {
     }
 };
 
+// Get Hackathon By ID
 const getHackathonById = async (req, res) => {
     try {
         const hackathon = await Hackathon.findById(req.params.id).populate(
@@ -85,10 +90,12 @@ const getHackathonById = async (req, res) => {
         });
     }
 };
-const updateHackathon = async(req,res) =>{
-    try{
+
+// Update Hackathon
+const updateHackathon = async (req, res) => {
+    try {
         const hackathon = await Hackathon.findByIdAndUpdate(
-            req.param.id,
+            req.params.id,
             req.body,
             {
                 new: true,
@@ -96,29 +103,31 @@ const updateHackathon = async(req,res) =>{
             }
         );
 
-        if(!hackathon){
+        if (!hackathon) {
             return res.status(404).json({
-                success:false,
+                success: false,
                 message: "Hackathon not found"
             });
         }
 
         res.status(200).json({
-            success:true,
-            message:"Hackathon updated successfully",
+            success: true,
+            message: "Hackathon updated successfully",
             hackathon
         });
-    }catch(error){
+
+    } catch (error) {
         res.status(500).json({
-            success:false,
-            message:"Server Error",
+            success: false,
+            message: "Server Error",
             error: error.message
         });
     }
 };
+
 module.exports = {
-  createHackathon,
-  getAllHackathons,
-  getHackathonById,
-  updateHackathon
+    createHackathon,
+    getAllHackathons,
+    getHackathonById,
+    updateHackathon
 };

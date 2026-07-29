@@ -9,7 +9,7 @@ const {
     getAllHackathons,
     getHackathonById,
     updateHackathon
-} = require("../controllers/hackathonController");
+} = require("../controllers/HackathonController");
 
 router.get("/", getAllHackathons);
 

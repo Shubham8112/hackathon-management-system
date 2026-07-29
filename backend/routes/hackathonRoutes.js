@@ -8,7 +8,8 @@ const {
     createHackathon,
     getAllHackathons,
     getHackathonById,
-    updateHackathon
+    updateHackathon,
+    deleteHackathon
 } = require("../controllers/HackathonController");
 
 router.get("/", getAllHackathons);
@@ -29,4 +30,5 @@ router.post(
     createHackathon
 );
 
+router.delete("/:id",authMiddleware,roleMiddleware("admin","organizer"),deleteHackathon);
 module.exports = router;

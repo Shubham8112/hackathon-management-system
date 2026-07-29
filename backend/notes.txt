@@ -1,0 +1,6 @@
+What is the difference between synchronous and asynchronous code?
+
+You can answer:
+
+Synchronous: Executes one line at a time. The next line waits until the current one finishes.
+Asynchronous: Doesn't block execution. Operations like database queries, API calls, and file operations run asynchronously. We use async/await to write asynchronous code in a readable, sequential style.

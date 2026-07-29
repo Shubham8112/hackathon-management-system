@@ -10,6 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const hackathonRoutes = require("./routes/hackathonRoutes");
+const participantRoutes = require("./routes/participantRoutes");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/hackathons", hackathonRoutes);
+app.use("/api/participants",participantRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hackathon Management Platform API");

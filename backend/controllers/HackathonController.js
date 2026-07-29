@@ -125,9 +125,32 @@ const updateHackathon = async (req, res) => {
     }
 };
 
+const deleteHackathon = async (req,res) =>{
+    try{
+        const hackathon = await Hackathon.findByIdAndDelete(req.params.id);
+        if(!hackathon){
+            return res.status(404).json({
+                success: false,
+                message: "hackathon not found"
+            });
+        }
+        res.status(200).json({
+            success:true,
+            message:"Hackathon deleted successfully"
+        });
+    }catch(error){
+        res.status(500).json({
+            success: false,
+            message:error.message,
+        });
+    }
+};
+
+
 module.exports = {
     createHackathon,
     getAllHackathons,
     getHackathonById,
-    updateHackathon
+    updateHackathon,
+    deleteHackathon
 };

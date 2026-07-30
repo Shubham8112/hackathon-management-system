@@ -45,9 +45,22 @@ const registerParticipant = async (req, res)=>{
     }
 };
 
-const getMyHackathon = async (req,res)=>{
+const getMyHackathons = async (req,res)=>{
     try{
+        const userId = req.user.id;
 
+        const participant = await Participant.find({
+            user: userId,
+        }).populate("hackathon");
+
+        const hackathon = participant.map(
+            (participant) => participant.hackathon
+        );
+
+        res.status(200).json({
+            success:true,
+            participant,
+        });
     }catch(error) {
         res.status(500).json({
             success:false,
@@ -59,5 +72,5 @@ const getMyHackathon = async (req,res)=>{
  
 module.exports = {
     registerParticipant,
-    getMyHackathon
+    getMyHackathons,
 };

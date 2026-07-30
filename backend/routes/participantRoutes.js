@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const authMiddleware = require("../middleware/authMiddleware");
-const {registerParticipant} = require("../controllers/participantController");
+const {registerParticipant, getMyHackathons} = require("../controllers/participantController");
 
 router.post(
   "/register/:hackathonId",
@@ -11,4 +11,9 @@ router.post(
   registerParticipant
 );
 
+router.get(
+  "/my-hackathons",
+  authMiddleware,
+  getMyHackathons
+)
 module.exports = router;

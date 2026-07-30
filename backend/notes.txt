@@ -4,3 +4,21 @@ You can answer:
 
 Synchronous: Executes one line at a time. The next line waits until the current one finishes.
 Asynchronous: Doesn't block execution. Operations like database queries, API calls, and file operations run asynchronously. We use async/await to write asynchronous code in a readable, sequential style.
+
+
+
+If an interviewer asks:
+
+What is the primary key in MongoDB?
+
+You can answer:
+
+"Every MongoDB document has a unique _id field. It acts like the primary key and uniquely identifies each document."
+
+If they ask:
+
+Does MongoDB have foreign keys?
+
+You can answer:
+
+"MongoDB doesn't enforce foreign keys like SQL databases, but we create relationships using ObjectId references with the ref property in Mongoose."

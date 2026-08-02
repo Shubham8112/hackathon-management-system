@@ -22,3 +22,16 @@ Does MongoDB have foreign keys?
 You can answer:
 
 "MongoDB doesn't enforce foreign keys like SQL databases, but we create relationships using ObjectId references with the ref property in Mongoose."
+
+🚀 Hackathon Management System API Summary
+Method	Route	Who Can Access	Purpose
+POST	/api/users/register	Everyone	Register a new user (Admin, Organizer, Participant)
+POST	/api/users/login	Everyone	Login and receive a JWT token
+POST	/api/hackathons	Admin, Organizer	Create a new hackathon
+GET	/api/hackathons	Everyone	View all hackathons
+GET	/api/hackathons/:id	Everyone	View details of one hackathon
+PUT	/api/hackathons/:id	Admin, Organizer	Update a hackathon
+DELETE	/api/hackathons/:id	Admin, Organizer	Delete a hackathon
+POST	/api/participants/register/:hackathonId	Participant	Register for a hackathon
+GET	/api/participants/my-hackathons	Participant	View only the hackathons the logged-in participant has registered for
+GET	/api/hackathons/:id/participants	Admin, Organizer	View all participants registered for a specific hackathon

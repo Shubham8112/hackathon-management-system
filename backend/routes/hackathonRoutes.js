@@ -12,6 +12,8 @@ const {
     deleteHackathon
 } = require("../controllers/HackathonController");
 
+const { getHackathonParticipants } = require("../controllers/participantController");
+
 router.get("/", getAllHackathons);
 
 router.get("/:id",getHackathonById);
@@ -31,4 +33,11 @@ router.post(
 );
 
 router.delete("/:id",authMiddleware,roleMiddleware("admin","organizer"),deleteHackathon);
+
+router.get(
+    "/:id/participants",
+    authMiddleware,
+    roleMiddleware("admin","organizer"),
+    getHackathonParticipants
+)
 module.exports = router;

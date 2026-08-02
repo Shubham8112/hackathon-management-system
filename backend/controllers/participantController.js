@@ -69,8 +69,63 @@ const getMyHackathons = async (req,res)=>{
     }
 };
 
+const getHackathonParticipants = async (req,res)=>{
+    try{
+        const hackathonId = req.params.id;
+
+        const participants = await Participant.find({
+            hackathon: hackathonId,
+        }).populate("user","name email");
+
+        res.status(200).json({
+            success: true,
+            participants,
+        });
+
+    }catch(error){
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
+
+const updateParticipantStatus = async (req, res) => {
+    try {
+        const participantId = req.params.participantId;
+        const { status } = req.body;
+
+        const participant = await Participant.findByIdAndUpdate(
+            participantId,
+            { status },
+            { returnDocument: "after" }
+        );
+
+        if (!participant) {
+            return res.status(404).json({
+                success: false,
+                message: "Participant not found",
+            });
+        }
+
+        // This should be OUTSIDE the if block
+        res.status(200).json({
+            success: true,
+            message: "Participant status updated successfully",
+            participant,
+        });
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
  
 module.exports = {
     registerParticipant,
     getMyHackathons,
+    getHackathonParticipants,
+    updateParticipantStatus,
 };

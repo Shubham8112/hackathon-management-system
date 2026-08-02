@@ -122,10 +122,38 @@ const updateParticipantStatus = async (req, res) => {
         });
     }
 };
- 
+
+const cancelRegistration = async (req, res) => {
+    try {
+        const participantId = req.params.participantId;
+
+        const participant = await Participant.findOneAndDelete({
+            _id: participantId,
+            user: req.user.id,
+        })
+
+        if(!participant){
+            return res.status(404).json({
+                success: false,
+                message: "Participant not found",
+            });
+        }
+
+        res.status(200).json({
+            success:true,
+            message: "Registration cancelled successfully",
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
 module.exports = {
     registerParticipant,
     getMyHackathons,
     getHackathonParticipants,
     updateParticipantStatus,
+    cancelRegistration,
 };

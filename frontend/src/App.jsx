@@ -16,12 +16,22 @@ function App() {
       <Route path="Dashboard" element={<Dashboard />} />
       <Route path="/About" element={<About/>}/>
       <Route path="/Dashboard"
+
       element={
         <ProtectedRoute>
           <Dashboard/>
         </ProtectedRoute>
       }/>
-    </Routes>
+
+      <Route
+      path="/hackathons"
+      element={
+          <ProtectedRoute>
+              <AllHackathons />
+          </ProtectedRoute>
+      }
+      />
+      </Routes>
   );
 }
 

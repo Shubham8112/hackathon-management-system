@@ -35,3 +35,20 @@ DELETE	/api/hackathons/:id	Admin, Organizer	Delete a hackathon
 POST	/api/participants/register/:hackathonId	Participant	Register for a hackathon
 GET	/api/participants/my-hackathons	Participant	View only the hackathons the logged-in participant has registered for
 GET	/api/hackathons/:id/participants	Admin, Organizer	View all participants registered for a specific hackathon
+
+
+
+
+
+Option 2
+
+Improve the backend further by adding:
+
+Pagination
+Search
+File upload (hackathon banners)
+Email notifications
+Swagger API documentation
+Unit tests
+
+These are advanced features.

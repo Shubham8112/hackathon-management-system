@@ -6,14 +6,14 @@ const roleMiddleware = require("../middleware/roleMiddleware");
 
 const {
   adminDashboard,
+  getDashboard,
 } = require("../controllers/adminController");
 
-// Only Admin can access
+
 router.get(
   "/dashboard",
   authMiddleware,
   roleMiddleware("admin"),
-  adminDashboard
-);
-
+  getDashboard,
+)
 module.exports = router;

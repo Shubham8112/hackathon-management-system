@@ -1,6 +1,11 @@
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/login/login";
+import About from "./pages/about/About";
+import Dashboard from "./pages/Dashboard/Dashboard";
+
 import { Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+
 
 function App() {
   return (
@@ -8,6 +13,14 @@ function App() {
       <Route path="/" element={<Signup />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="Dashboard" element={<Dashboard />} />
+      <Route path="/About" element={<About/>}/>
+      <Route path="/Dashboard"
+      element={
+        <ProtectedRoute>
+          <Dashboard/>
+        </ProtectedRoute>
+      }/>
     </Routes>
   );
 }

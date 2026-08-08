@@ -1,13 +1,14 @@
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
-import About from "./pages/About/About";
+import About from "./pages/about/About";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import AllHackathons from "./pages/AllHackathons/AllHackathons";
-import MyHackathons from "./pages/MyHackathons/MyHackathons";
+import MyHackathons from "./pages/MyHackathons/Myhackathons";
 import Participants from "./pages/Participants/Participants";
 import CreateHackathon from "./pages/CreateHackathon/CreateHackathon";
 import UpdateHackathon from "./pages/UpdateHackathon/UpdateHackathon";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
+
 
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";

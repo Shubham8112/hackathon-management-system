@@ -1,0 +1,60 @@
+.my-hackathons-page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.my-hacks-loading {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-registrations {
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-style: dashed;
+  border-width: 1.5px;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.empty-registrations h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.empty-registrations p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  background-color: var(--bg-tertiary);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.cancel-btn {
+  width: 100%;
+  border-color: rgba(239, 68, 68, 0.2);
+  color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+}
+
+.cancel-btn:hover {
+  background-color: var(--color-danger);
+  color: #ffffff;
+  border-color: var(--color-danger);
+}

@@ -1,0 +1,145 @@
+.participants-page {
+  padding-top: 32px;
+  padding-bottom: 60px;
+}
+
+.participants-loading {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-participants {
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-style: dashed;
+  border-width: 1.5px;
+}
+
+.empty-participants h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.empty-participants p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Tabular layout */
+.participants-table-wrapper {
+  overflow-x: auto;
+  padding: 0; /* Align table edges exactly to card border */
+}
+
+.participants-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.participants-table th {
+  padding: 18px 24px;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.participant-row {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition-fast);
+}
+
+.participant-row:last-child {
+  border-bottom: none;
+}
+
+.participant-row:hover {
+  background-color: rgba(99, 102, 241, 0.02);
+}
+
+.participants-table td {
+  padding: 16px 24px;
+  vertical-align: middle;
+}
+
+/* User cell info */
+.user-details-cell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-avatar-placeholder {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-tertiary);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: 1px solid var(--border-color);
+}
+
+.participant-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.participant-email {
+  color: var(--text-muted);
+  font-size: 0.825rem;
+}
+
+.join-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Actions Cell styling */
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.approve-btn {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  border-color: rgba(16, 185, 129, 0.1);
+}
+
+.approve-btn:hover {
+  background-color: var(--color-success);
+  color: #ffffff;
+  border-color: var(--color-success);
+}
+
+.reject-btn {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border-color: rgba(239, 68, 68, 0.1);
+}
+
+.reject-btn:hover {
+  background-color: var(--color-danger);
+  color: #ffffff;
+  border-color: var(--color-danger);
+}
+
+.reviewed-placeholder {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-style: italic;
+  padding-right: 12px;
+}
